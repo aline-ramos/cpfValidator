@@ -7,8 +7,7 @@ function cpfValidator(cpf) {
 		numCpf += parseInt(cpf.substring(i - 1, i)) * (11 - i);
 	}
 	resto = (numCpf * 10) % 11;
-	if ((resto === 10) || (resto === 11)) {
-	}
+
 	if (resto !== parseInt(cpf.substring(9, 10))) {
 		return false;
 	}
@@ -17,12 +16,8 @@ function cpfValidator(cpf) {
 		numCpf += parseInt(cpf.substring(i - 1, i)) * (12 - i);
 	}
 	resto = (numCpf * 10) % 11;
-	if ((resto === 10) || (resto === 11)) {
-	}
-	if (resto !== parseInt(cpf.substring(10, 11))) {
-		return false;
-	} else {
-		return true;
-	}
+
+	return resto === parseInt(cpf.substring(10, 11));
+
 }
 module.exports.cpfValidator = cpfValidator;
